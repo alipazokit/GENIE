@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++0x -O3 -lrt -lpthread     CMakeFiles/GENIE.dir/src/ge_and_jack_cov.cpp.o CMakeFiles/GENIE.dir/src/genotype.cpp.o CMakeFiles/GENIE.dir/src/storage.cpp.o  -o GENIE -rdynamic 

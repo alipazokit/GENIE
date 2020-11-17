@@ -1,0 +1,106 @@
+OUTPUT: 
+Variances: 
+Sigma^2_0: -0.000424276
+Sigma^2_1: 0.0119635
+Sigma^2_2: 0.0156663
+Sigma^2_3: 0.170542
+Sigma^2_4: 0.0308082
+Sigma^2_5: 0.160744
+Sigma^2_6: 0.0737855
+Sigma^2_7: 0.0489137
+Sigma^2_e: 0.474841
+
+h^2's (heritabilities) and e's (enrichments) are computed based on Equation (9) in the paper  https://doi.org/10.1038/s41467-020-17576-9):
+h^2's: 
+h^2 of bin 0 : -0.000429934 ,  se: 0.00204184
+h^2 of bin 1 : 0.012123 ,  se: 0.0171806
+h^2 of bin 2 : 0.0158752 ,  se: 0.00665863
+h^2 of bin 3 : 0.172817 ,  se: 0.0258471
+h^2 of bin 4 : 0.031219 ,  se: 0.0138525
+h^2 of bin 5 : 0.162888 ,  se: 0.0170622
+h^2 of bin 6 : 0.0747694 ,  se: 0.0109028
+h^2 of bin 7 : 0.049566 ,  se: 0.00957063
+h^2_i/h^2_t: 
+h^2/h^2_t of bin 0 : -0.000828666,  se: 0.00395328
+h^2/h^2_t of bin 1 : 0.0233662,  se: 0.0335315
+h^2/h^2_t of bin 2 : 0.0305983,  se: 0.0126839
+h^2/h^2_t of bin 3 : 0.333091,  se: 0.039376
+h^2/h^2_t of bin 4 : 0.0601723,  se: 0.0256178
+h^2/h^2_t of bin 5 : 0.313954,  se: 0.03481
+h^2/h^2_t of bin 6 : 0.144112,  se: 0.0183847
+h^2/h^2_t of bin 7 : 0.0955347,  se: 0.0159969
+Enrichments: 
+Enrichment of bin 0 : -0.032067,  se: 0.152981
+Enrichment of bin 1 : 0.104216,  se: 0.149555
+Enrichment of bin 2 : 0.652515,  se: 0.270488
+Enrichment of bin 3 : 1.64011,  se: 0.193884
+Enrichment of bin 4 : 0.531158,  se: 0.226136
+Enrichment of bin 5 : 2.2967,  se: 0.254649
+Enrichment of bin 6 : 0.691227,  se: 0.0881812
+Enrichment of bin 7 : 2.30231,  se: 0.385513
+
+h^2's (heritabilities) and e's (enrichments) are computed based on Equation (2-4) in the paper  https://doi.org/10.1038/s41467-020-17576-9):
+h^2's: 
+h^2 of bin 0 : -0.000429934,  se: 0.00204184
+h^2 of bin 1 : 0.012123,  se: 0.0171806
+h^2 of bin 2 : 0.0158752,  se: 0.00665863
+h^2 of bin 3 : 0.172817,  se: 0.0258471
+h^2 of bin 4 : 0.031219,  se: 0.0138525
+h^2 of bin 5 : 0.162888,  se: 0.0170622
+h^2 of bin 6 : 0.0747694,  se: 0.0109028
+h^2 of bin 7 : 0.049566,  se: 0.00957063
+Total h^2 : 0.518827, se: 0.0393505
+Enrichments: 
+Enrichment of bin 0: -0.032067 ,  se: 0.15223
+Enrichment of bin 1: 0.104216 ,  se: 0.149626
+Enrichment of bin 2: 0.652515 ,  se: 0.271148
+Enrichment of bin 3: 1.64011 ,  se: 0.200971
+Enrichment of bin 4: 0.531158 ,  se: 0.227955
+Enrichment of bin 5: 2.2967 ,  se: 0.27384
+Enrichment of bin 6: 0.691227 ,  se: 0.092795
+Enrichment of bin 7: 2.30231 ,  se: 0.419787
+OUTPUT: 
+Variances: 
+Sigma^2_0: 7.37887e-05  se: 0.000920117
+Sigma^2_1: 0.00662043  se: 0.00318661
+Sigma^2_2: 0.006086  se: 0.00263373
+Sigma^2_3: 0.0209434  se: 0.00542725
+Sigma^2_4: 0.00882069  se: 0.00294712
+Sigma^2_5: 0.0169947  se: 0.00561852
+Sigma^2_6: 0.0157771  se: 0.00446572
+Sigma^2_7: 0.0099268  se: 0.00360627
+Sigma^2_8: -0.0183975  se: 0.00490326
+Sigma^2_e: 0.948524  se: 0.00609235
+Heritabilities: 
+h^2 of bin 0 : 7.26717e-05 ,  SE: 0.000905995
+h^2 of bin 1 : 0.00652021 ,  SE: 0.00310253
+h^2 of bin 2 : 0.00599388 ,  SE: 0.0025776
+h^2 of bin 3 : 0.0206264 ,  SE: 0.00525512
+h^2 of bin 4 : 0.00868717 ,  SE: 0.00287136
+h^2 of bin 5 : 0.0167375 ,  SE: 0.00547754
+h^2 of bin 6 : 0.0155383 ,  SE: 0.00431343
+h^2 of bin 7 : 0.00977654 ,  SE: 0.00352819
+h^2 of bin 8 : -0.018119 ,  SE: 0.00467622
+Total h^2 : 0.0658337 , SE: 0.0101712
+Enrichments: 
+Enrichment of bin 0 :0.0735912 ,  SE: 0.93822
+Enrichment of bin 1 :1.00549 ,  SE: 0.431192
+Enrichment of bin 2 :2.93696 ,  SE: 1.15201
+Enrichment of bin 3 :3.66446 ,  SE: 0.785378
+Enrichment of bin 4 :2.39921 ,  SE: 0.702422
+Enrichment of bin 5 :3.8521 ,  SE: 1.03405
+Enrichment of bin 6 :1.97509 ,  SE: 0.399377
+Enrichment of bin 7 :5.03402 ,  SE: 1.54059
+Enrichment of bin 8 :-0.550447 ,  SE: 0.0869721
+OUTPUT: 
+Variances: 
+Sigma^2_0: -0.00061145  se: 1.4362e-05
+Sigma^2_1: 0.000215926  se: 6.676e-06
+Sigma^2_e: 0.984786  se: 4.37804e-06
+Heritabilities: 
+h^2 of bin 0 : -0.000621146 ,  SE: 1.45967e-05
+h^2 of bin 1 : 0.00021935 ,  SE: 6.78435e-06
+Total h^2 : -0.000401796 , SE: 7.88986e-06
+Enrichments: 
+Enrichment of bin 0 :3.09185 ,  SE: 0.0135703
+Enrichment of bin 1 :-1.09185 ,  SE: 0.0135703
