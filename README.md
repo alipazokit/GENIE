@@ -1,5 +1,5 @@
 # GENIE
-Gene by ENviroment Interaction Estimator
+Gene-ENviroment Interaction Estimator
 
 
 
