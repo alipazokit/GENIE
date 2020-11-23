@@ -1,4 +1,4 @@
-# Install script for directory: /u/home/a/alipazok/GENIE
+# Install script for directory: /u/home/a/alipazok/sriram/GENIE
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/u/home/a/alipazok/GENIE/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/u/home/a/alipazok/sriram/GENIE/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/u/home/a/alipazok/GENIE/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/u/home/a/alipazok/sriram/GENIE/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

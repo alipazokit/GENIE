@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /u/home/a/alipazok/GENIE
+CMAKE_SOURCE_DIR = /u/home/a/alipazok/sriram/GENIE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /u/home/a/alipazok/GENIE/build
+CMAKE_BINARY_DIR = /u/home/a/alipazok/sriram/GENIE/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/GENIE.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /u/home/a/alipazok/GENIE/build
 CMakeFiles/GENIE.dir/all:
 	$(MAKE) -f CMakeFiles/GENIE.dir/build.make CMakeFiles/GENIE.dir/depend
 	$(MAKE) -f CMakeFiles/GENIE.dir/build.make CMakeFiles/GENIE.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /u/home/a/alipazok/GENIE/build/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /u/home/a/alipazok/sriram/GENIE/build/CMakeFiles  1 2 3
 	@echo "Built target GENIE"
 .PHONY : CMakeFiles/GENIE.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/GENIE.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GENIE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /u/home/a/alipazok/GENIE/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /u/home/a/alipazok/sriram/GENIE/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/GENIE.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /u/home/a/alipazok/GENIE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /u/home/a/alipazok/sriram/GENIE/build/CMakeFiles 0
 .PHONY : CMakeFiles/GENIE.dir/rule
 
 # Convenience name for target.

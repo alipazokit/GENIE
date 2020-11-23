@@ -1098,7 +1098,7 @@ emmintrin.h
 bits/stdc++.h
 -
 
-/u/home/a/alipazok/GENIE/src/ge_and_jack_cov.cpp
+/u/home/a/alipazok/sriram/GENIE/src/ge_and_jack_cov.cpp
 fstream
 -
 iostream
@@ -1122,30 +1122,16 @@ Eigen/SVD
 Eigen/QR
 -
 time.h
-/u/home/a/alipazok/GENIE/src/time.h
+/u/home/a/alipazok/sriram/GENIE/src/time.h
 genotype.h
-/u/home/a/alipazok/GENIE/src/genotype.h
+/u/home/a/alipazok/sriram/GENIE/src/genotype.h
 mailman.h
-/u/home/a/alipazok/GENIE/src/mailman.h
+/u/home/a/alipazok/sriram/GENIE/src/mailman.h
 arguments.h
-/u/home/a/alipazok/GENIE/src/arguments.h
+/u/home/a/alipazok/sriram/GENIE/src/arguments.h
 storage.h
-/u/home/a/alipazok/GENIE/src/storage.h
+/u/home/a/alipazok/sriram/GENIE/src/storage.h
 /usr/include/boost/random.hpp
--
-
-/u/home/a/alipazok/GENIE/src/genotype.cpp
-bits/stdc++.h
--
-genotype.h
-/u/home/a/alipazok/GENIE/src/genotype.h
-storage.h
-/u/home/a/alipazok/GENIE/src/storage.h
-
-/u/home/a/alipazok/GENIE/src/storage.cpp
-storage.h
-/u/home/a/alipazok/GENIE/src/storage.h
-bits/stdc++.h
 -
 
 /usr/include/boost/random.hpp

@@ -160,6 +160,7 @@ vector <int> SNP_annot;
 bool use_1col_annot=false;
 
 
+bool Annot_x_E=true;
 ///Variables for reg out cov on both side of LM
 bool both_side_cov=true;
 MatrixXdr UXXz;
@@ -1037,7 +1038,10 @@ void read_annot (string filename){
          step_size_rem=Nsnp%Njack;
 	cout<<"Number of SNPs per block : "<<step_size<<endl;
       //  cout<<"stepsize : "<<step_size_rem<<endl;
-	jack_bin.resize(Njack, vector<int>(Nbin+Nenv,0));
+      	if(Annot_x_E==false)
+		jack_bin.resize(Njack, vector<int>(Nbin+Nenv,0));
+	else
+		jack_bin.resize(Njack, vector<int>(Nbin+(Nenv*Nbin),0));
 	int temp;
 	for (int i=0;i<Nsnp;i++)
 	   for(int j=0;j<Nbin;j++)
@@ -1049,18 +1053,29 @@ void read_annot (string filename){
 			jack_bin[temp][j]++;	
 		 }
 
-	
-	 for (int i=0;i<Njack;i++){
-                double sum=0;
-                for(int j=0;j<Nbin;j++){
-                        sum+=jack_bin[i][j];
+	if(Annot_x_E==true){
+		for (int i=0;i<Njack;i++){
+			for(int k=0;k<Nenv;k++){
+				 for(int j=0;j<Nbin;j++){
+					jack_bin[i][Nbin+(k*Nbin)+j]=jack_bin[i][j];
 
-                }
-		for(int k=0;k<Nenv;k++){
-			jack_bin[i][Nbin+k]=sum;
+				 }
+			}
 		}
-        }
 
+
+	}
+	else{
+	 	for (int i=0;i<Njack;i++){
+                	double sum=0;
+                	for(int j=0;j<Nbin;j++){
+                        	sum+=jack_bin[i][j];
+               		 }
+			for(int k=0;k<Nenv;k++){
+				jack_bin[i][Nbin+k]=sum;
+			}
+	        }
+	}
 
 /*	
 cout<<"jackbin"<<endl;
@@ -1837,9 +1852,18 @@ MatrixXdr output_env;
 
 
 //Nenv=0;
-int nongen_Nbin=Nenv;
-for (int i=0;i<Nenv;i++)
-len.push_back(Nsnp);
+int nongen_Nbin;
+if(Annot_x_E==true){
+    nongen_Nbin=Nenv*Nbin;
+    for (int i=0;i<Nenv;i++)
+	for (int j=0;j<Nbin;j++)
+		len.push_back(len[j]);
+}
+else{
+    nongen_Nbin=Nenv;
+    for (int i=0;i<Nenv;i++)
+    	len.push_back(Nsnp);
+}
 //define 
 
 //e
@@ -1979,9 +2003,16 @@ for (int jack_index=0;jack_index<Njack;jack_index++){
                    output_env=compute_XXz(num_snp,env_all_zb);
                   
                   output_env=output_env.array().colwise()*Enviro.col(env_index).array();
-                  for (int z_index=0;z_index<Nz;z_index++){
-                        XXz.col(((Nbin+env_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=output_env.col(z_index);	
-			XXz.col(((Nbin+env_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=output_env.col(z_index);
+		
+		  int gxe_bin_index;
+		  if(Annot_x_E==true)  
+	              gxe_bin_index=Nbin+(env_index*Nbin)+bin_index;
+                  else
+		      gxe_bin_index=Nbin+env_index;			
+
+	          for (int z_index=0;z_index<Nz;z_index++){
+                        XXz.col(((gxe_bin_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=output_env.col(z_index);	
+			XXz.col(((gxe_bin_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=output_env.col(z_index);
                  
 		       if(both_side_cov==true) {
                  		 vec1=output_env.col(z_index);
@@ -1989,8 +2020,8 @@ for (int jack_index=0;jack_index<Njack;jack_index++){
                   		 w2=Q*w1;
                  		 w3=covariate*w2;
                  		 //if(num_snp!=len[bin_index])
-                 	          UXXz.col(((Nbin+env_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=w3;
-                		  UXXz.col(((Nbin+env_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=w3;
+                 	          UXXz.col(((gxe_bin_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=w3;
+                		  UXXz.col(((gxe_bin_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=w3;
                        }
 	
 		 }
@@ -2003,8 +2034,8 @@ for (int jack_index=0;jack_index<Njack;jack_index++){
 
 		   for (int z_index=0;z_index<Nz;z_index++){
                 	//   if(num_snp!=len[bin_index])
-                	   XXUz.col(((Nbin+env_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=output_env.col(z_index);
-                	 XXUz.col(((Nbin+env_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=output_env.col(z_index);   /// save whole sample
+                	   XXUz.col(((gxe_bin_index)*(Njack+1)*Nz)+(jack_index*Nz)+z_index)+=output_env.col(z_index);
+                	 XXUz.col(((gxe_bin_index)*(Njack+1)*Nz)+(Njack*Nz)+z_index)+=output_env.col(z_index);   /// save whole sample
               	 }
                }
 
@@ -2014,8 +2045,8 @@ for (int jack_index=0;jack_index<Njack;jack_index++){
 			 scaled_pheno= pheno.array()*Enviro.col(env_index).array();
                    		
 		double temp=compute_yXXy(num_snp,scaled_pheno);
-		yXXy(Nbin+env_index,jack_index)+=temp;
-	        yXXy(Nbin+env_index,Njack)+=temp;
+		yXXy(gxe_bin_index,jack_index)+=temp;
+	        yXXy(gxe_bin_index,Njack)+=temp;
 
 
 
@@ -2131,7 +2162,7 @@ cout<<"bin "<<i<<" : "<<len[i]<<endl;
 
 
 for(int i=0;i<Njack;i++){
-  for(int j=0;j<Nbin+1;j++)
+  for(int j=0;j<Nbin+nongen_Nbin;j++)
         cout<<jack_bin[i][j]<<" ";
  cout<<endl;
 }
