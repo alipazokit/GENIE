@@ -160,7 +160,7 @@ vector <int> SNP_annot;
 bool use_1col_annot=false;
 
 
-bool Annot_x_E=true;
+bool Annot_x_E=false;
 ///Variables for reg out cov on both side of LM
 bool both_side_cov=true;
 MatrixXdr UXXz;
@@ -2166,6 +2166,9 @@ for(int i=0;i<Njack;i++){
         cout<<jack_bin[i][j]<<" ";
  cout<<endl;
 }
+
+int gen_Nbin=Nbin;
+
 Nbin=Nbin+nongen_Nbin;
 
 
@@ -2445,11 +2448,18 @@ outfile.open(add_output.c_str(), std::ios_base::app);
 cout<<endl<<"OUTPUT: "<<endl<<"Variances: "<<endl;
 outfile<<"OUTPUT: "<<endl<<"Variances: "<<endl;
 for (int j=0;j<Nbin;j++){
-        cout<<"Sigma^2_"<<j<<": "<<point_est(j,0)<<"  se: "<<point_se(j,0)<<endl;
-	outfile<<"Sigma^2_"<<j<<": "<<point_est(j,0)<<"  se: "<<point_se(j,0)<<endl;
+	if(j<gen_Nbin){
+        cout<<"Sigma^2_g"<<j<<": "<<point_est(j,0)<<"  SE: "<<point_se(j,0)<<endl;
+	outfile<<"Sigma^2_g"<<j<<": "<<point_est(j,0)<<"  SE: "<<point_se(j,0)<<endl;
+	}
+	else{
+	int k=j-gen_Nbin;
+	cout<<"Sigma^2_ge"<<k<<": "<<point_est(j,0)<<"  SE: "<<point_se(j,0)<<endl;
+        outfile<<"Sigma^2_ge"<<k<<": "<<point_est(j,0)<<"  SE: "<<point_se(j,0)<<endl;
+        }
 }
-cout<<"Sigma^2_e: "<<point_est(Nbin,0)<<"  se: "<<point_se(Nbin,0)<<endl;
-outfile<<"Sigma^2_e: "<<point_est(Nbin,0)<<"  se: "<<point_se(Nbin,0)<<endl;
+cout<<"Sigma^2_e: "<<point_est(Nbin,0)<<"  SE: "<<point_se(Nbin,0)<<endl;
+outfile<<"Sigma^2_e: "<<point_est(Nbin,0)<<"  SE: "<<point_se(Nbin,0)<<endl;
 
 
 temp_sum=point_est.sum();
@@ -2544,16 +2554,31 @@ for (int i=0;i<Nbin;i++){
 cout<<endl<<"Heritabilities: "<<endl;
 outfile<<"Heritabilities: "<<endl;
 for (int j=0;j<Nbin;j++){
-     cout<<"h^2 of bin "<<j<<" : "<<point_est(j,0)<<" ,  SE: "<<SEjack(j,0)<<endl;
-     outfile<<"h^2 of bin "<<j<<" : "<<point_est(j,0)<<" ,  SE: "<<SEjack(j,0)<<endl;
+     if(j<gen_Nbin){
+     cout<<"h^2_g"<<j<<" : "<<point_est(j,0)<<" SE: "<<SEjack(j,0)<<endl;
+     outfile<<"h^2_g"<<j<<" : "<<point_est(j,0)<<" SE: "<<SEjack(j,0)<<endl;
+     }
+     else{
+     int k=j-gen_Nbin;
+     cout<<"h^2_ge"<<k<<" : "<<point_est(j,0)<<" SE: "<<SEjack(j,0)<<endl;
+     outfile<<"h^2_ge"<<k<<" : "<<point_est(j,0)<<" SE: "<<SEjack(j,0)<<endl;
+     }
 }
-cout<<"Total h^2 : "<<point_est(Nbin,0)<<" , SE: "<<SEjack(Nbin,0)<<endl;
-outfile<<"Total h^2 : "<<point_est(Nbin,0)<<" , SE: "<<SEjack(Nbin,0)<<endl;
+cout<<"Total h^2 : "<<point_est(Nbin,0)<<" SE: "<<SEjack(Nbin,0)<<endl;
+outfile<<"Total h^2 : "<<point_est(Nbin,0)<<" SE: "<<SEjack(Nbin,0)<<endl;
 cout<<endl<<"Enrichments: "<<endl;
 outfile<<"Enrichments: "<<endl;
 for (int j=0;j<Nbin;j++){
-     cout<<"Enrichment of bin "<<j<<" :"<<enrich_point_est(j,0)<<" ,  SE: "<<enrich_SEjack(j,0)<<endl;
-     outfile<<"Enrichment of bin "<<j<<" :"<<enrich_point_est(j,0)<<" ,  SE: "<<enrich_SEjack(j,0)<<endl;
+     if(j<gen_Nbin){
+     cout<<"Enrichment of G bin "<<j<<" :"<<enrich_point_est(j,0)<<" SE: "<<enrich_SEjack(j,0)<<endl;
+     outfile<<"Enrichment of G bin "<<j<<" :"<<enrich_point_est(j,0)<<" SE: "<<enrich_SEjack(j,0)<<endl;
+     }
+     else{
+      int k=j-gen_Nbin;
+     cout<<"Enrichment of GxE bin "<<k<<" :"<<enrich_point_est(j,0)<<" ,  SE: "<<enrich_SEjack(j,0)<<endl;
+     outfile<<"Enrichment of GxE bin "<<k<<" :"<<enrich_point_est(j,0)<<" ,  SE: "<<enrich_SEjack(j,0)<<endl;
+
+    }
 }
 /*std::ofstream outfile;
 string add_output=command_line_opts.OUTPUT_FILE_PATH;
