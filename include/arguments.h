@@ -36,6 +36,7 @@ struct options{
 	int l;
 	bool memory_efficient;
 	bool fast_mode;
+	bool exannot;
 	bool missing;
 	bool text_version;
 	double beta;
@@ -214,6 +215,7 @@ void parse_args(int argc, char const *argv[]){
 	command_line_opts.missing=false;
 	command_line_opts.text_version = false;
 	
+	command_line_opts.exannot=false;
 
 	if(argc<3){
 		cout<<"Correct Usage is "<<argv[0]<<" -p <parameter file>"<<endl;
@@ -328,7 +330,8 @@ void parse_args(int argc, char const *argv[]){
 				command_line_opts.fast_mode=false;
 			else if(strcmp(argv[i],"-txt")==0)
 				command_line_opts.text_version=true;
-			
+			 else if(strcmp(argv[i],"-eXannot")==0)		
+				 command_line_opts.exannot=true;	
 			else{
 				cout<<"Not Enough or Invalid arguments"<<endl;
 				cout<<"Correct Usage is "<<argv[0]<<" -g <genotype file> -k <num_of_evec> -b <num_of_zb/10>  -v (for debugmode) -a (for getting accuracy)"<<endl;

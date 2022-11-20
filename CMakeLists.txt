@@ -19,4 +19,5 @@ ADD_DEFINITIONS(-DDEBUG=${DEBUG})
 
 
 
-add_executable(GENIE src/ge_and_jack_cov.cpp src/genotype.cpp src/storage.cpp)
+add_executable(GENIE_mem src/ge_mem.cpp src/genotype.cpp src/storage.cpp)
+add_executable(GENIE src/ge_hetro.cpp src/genotype.cpp src/storage.cpp)
